@@ -10,6 +10,7 @@ const GeoClicks = () => {
 
     const [locClicks, setlocClicks] = useState([]);
     const [selectedMarker, setSelectedMarker] = useState(null);
+    var totalClicks = 0;
 
     useEffect(() => {
         GeoLocation.getAllLocations().then((response) => {
@@ -27,9 +28,9 @@ const GeoClicks = () => {
     };
 
     return (
-        <div style={{ height: "100vh" }}>
+        <div style={{ height: "95vh" }}>
 
-            <a title="Back to Home Page" href="/">
+            <a title="Back to Home Page" href="/" style={{ position: "absolute", color: "black" }}>
                 <ArrowBackIcon fontSize="large" className="back-button" />
             </a>
 
@@ -44,6 +45,7 @@ const GeoClicks = () => {
                             }
                         </Geographies>
                         {Object.entries(locClicks).map(([keys, values]) => {
+                            { totalClicks += values.clicks }
                             return (
                                 <Marker coordinates={[values.long, values.lat]}
                                     onClick={() => handleMarkerClick(values.clicks)}>
@@ -63,6 +65,17 @@ const GeoClicks = () => {
                     </div>
                 </div>
             )}
+            <div style={{
+                background: "rgb(26, 26, 29)",
+                height: "5vh",
+                textAlign: "center",
+                fontSize: "21px",
+                color: "white",
+                fontWeight: "600"
+            }}>
+                Total Clicks: {totalClicks} <br />
+                Click on the dots to view Individual clicks
+            </div>
         </div>
     );
 }

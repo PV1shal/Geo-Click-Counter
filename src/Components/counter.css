@@ -1,22 +1,48 @@
+body,
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: linear-gradient(to bottom, rgb(111, 34, 50) 0%, rgb(26, 26, 29) 85%);
+}
+
+.Title {
+    font-size: 64px;
+    font-weight: 900;
+    color: white;
+}
 .Clicks {
+    display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     position: absolute;
     left: 50%;
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
+    }
+    
+    .button-container {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
 }
 
 .click-Count {
     text-align: center;
     font-size: 120px;
+    color: rgb(255, 255, 255);
 }
 
 .countButton {
-    background-color: cornflowerblue;
+    background-color: rgb(190, 6, 43);
     border: none;
     height: 40px;
-    width: 40px;
-    border-radius: 50%;
+    width: 100px;
+        border-radius: 10px;
     color: black;
     font-size: 32px;
     font-weight: bold;
@@ -24,7 +50,7 @@
 }
 
 .countButton:hover {
-    background-color: rgb(240, 70, 155);
+    background-color: rgb(255, 143, 191);
     transition-duration: 0.2s;
     border: none;
     height: 40px;
@@ -37,30 +63,30 @@
 }
 
 .geoButton {
-    position: absolute;
-    margin: 10px;
+    /* position: absolute; */
+        margin: 15px;
     right: 0;
     background-color: cornflowerblue;
     color: black;
     border-radius: 60px;
-    height: 32px;
+    height: 50px;
     display: inline-flex;
     align-items: center;
     overflow: hidden;
     width: auto;
-    max-width: 32px;
+    max-width: 300px;
     -webkit-transition: max-width 0.5s;
     transition: max-width 0.5s;
     padding-right: 6px;
 }
 
 .geoButton:hover {
-    max-width: 300px;
+    background-color: white;
 }
 
 .geoIcon {
     font-family: "Font Awesome 5 Free";
-    font-size: 16px;
+    /* font-size: 32px; */
     margin-right: 15px;
     padding: 0px 8px;
     display: flex;
@@ -68,6 +94,9 @@
 }
 
 .geoText {
+    color: black;
+        font-size: 20px;
+        font-weight: bold;
     white-space: nowrap;
     padding-right: 15px;
 }

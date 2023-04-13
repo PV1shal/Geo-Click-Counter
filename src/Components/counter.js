@@ -3,10 +3,8 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import './counter.css'
 import GeoLocation from "../Services/GeoLocation";
-// import GeoLocation from "../Services/GeoLocation";
 
 const Counter = () => {
-
     const [clicks, setClicks] = useState(JSON.parse(window.localStorage.getItem('clickCounts')) || 0);
 
     const saveToDB = () => {
@@ -33,29 +31,30 @@ const Counter = () => {
     }
 
     return (
-        <>
-            <a href="/geoCount" class="geoButton">
-                <span class="geoIcon"><TravelExploreIcon /></span>
-                <span class="geoText">Geographic Distribution</span>
-            </a>
+        <div className="container">
             <div className="Clicks">
+                <text className="Title">You Have Clicked:</text>
                 <div className="click-Count">
                     {clicks}
                 </div>
-                <div style={{ display: "flex", alignItems: "center" }}>
+                <div className="button-container">
                     <button className="countButton" onClick={clickedButton}>
                         +
                     </button>
-                    <button className="countButton" onClick={() => {
+                    <button className="countButton" title="This is also considered clicks" onClick={() => {
                         setClicks(0);
                         window.localStorage.setItem('clickCounts', 0);
                         saveToDB();
                     }}>
-                        <RefreshIcon fontSize="large" />
+                        <RefreshIcon fontSize="large" style={{ overflow: "hidden" }} />
                     </button>
                 </div>
+                <a href="/geoCount" className="geoButton">
+                    <span className="geoIcon"><TravelExploreIcon fontSize="large" /></span>
+                    <span className="geoText">Geographic Distribution</span>
+                </a>
             </div>
-        </>
+        </div >
     );
 };
 
